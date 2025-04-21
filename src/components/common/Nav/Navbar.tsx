@@ -25,9 +25,7 @@ const Navbar = () => {
       />
       <MobileNav />
       <div
-        className={`fixed hidden lg:flex items-center justify-center left-0 top-0 right-0  ${
-          isScrolled ? "hidden" : "bg-sky-900"
-        } text-white h-24`}
+        className={`z-50 absolute hidden lg:flex items-center justify-center left-0 top-0 right-0  ${isScrolled ? "hidden" : "bg-transparent"} text-white h-24`}
       >
         <NavElements />
       </div>
@@ -35,7 +33,7 @@ const Navbar = () => {
         // initial={{ y: -100, opacity: 0 }}
         // animate={isScrolled && { y: 0, opacity: 1 }}
         // transition={{ duration: 0.5 }}
-        className={`hidden lg:flex fixed  items-center justify-center left-0 top-0 right-0 duration-500  ${
+        className={`z-50 hidden lg:flex fixed  items-center justify-center left-0 top-0 right-0 duration-500  ${
           isScrolled ? "bg-violet translate-y-0" : "bg-sky-950 opacity-0 -translate-y-full"
         } text-white h-24`}
       >

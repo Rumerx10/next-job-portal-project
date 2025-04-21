@@ -11,7 +11,7 @@ const NavElements = () => {
   console.log(activeLink);
   
   return (
-    <div className="px-5 flex items-center justify-between h-full w-full max-w-7xl">
+    <div className="px-5 lg:px-0 flex items-center justify-between h-full w-full max-w-7xl">
       <div>
         <LogoSvg />
       </div>

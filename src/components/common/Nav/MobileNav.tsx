@@ -9,7 +9,7 @@ const MobileNav = () => {
   const [isOpen, setOpen] = useState(false);
   return (
     <div>
-      <div className="fixed left-0 top-0 right-0 flex items-center justify-between px-5 bg-violet h-20">
+      <div className="fixed lg:hidden left-0 top-0 right-0 flex items-center justify-between px-5 bg-violet h-20">
         <LogoSvg />
         <Hamburger toggled={isOpen} toggle={setOpen} color="white" />
       </div>
