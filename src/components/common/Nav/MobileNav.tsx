@@ -9,7 +9,7 @@ const MobileNav = () => {
   const [isOpen, setOpen] = useState(false);
   return (
     <div>
-      <div className="fixed lg:hidden left-0 top-0 right-0 flex items-center justify-between px-5 bg-violet h-20">
+      <div className="z-50 fixed lg:hidden left-0 top-0 right-0 flex items-center justify-between px-5 bg-violet h-20">
         <LogoSvg />
         <Hamburger toggled={isOpen} toggle={setOpen} color="white" />
       </div>
@@ -21,7 +21,7 @@ const MobileNav = () => {
       ></div>
       <div
         className={`fixed ${
-          isOpen ? "translate-x-0" : "translate-x-full"
+          isOpen ? " z-50 translate-x-0" : "translate-x-full"
         } duration-500 bg-[#2596be] top-20 right-0 bottom-0 p-5  w-[70%]`}
       >
         <div className="flex flex-col gap-3">
@@ -29,11 +29,15 @@ const MobileNav = () => {
             <div
               key={index}
               className={`py-2 ${
-                link.label == activeLink && "backdrop-blur-xl bg-white/30 rounded-full "
+                link.label == activeLink &&
+                "backdrop-blur-xl bg-white/30 rounded-full "
               } duration-150`}
               onClick={() => setActiveLink(link.label)}
             >
-              <Link href={link.href} className={`text-white font-semibold px-3 w-full`}>
+              <Link
+                href={link.href}
+                className={`text-white font-semibold px-3 w-full`}
+              >
                 {link.label}
               </Link>
             </div>

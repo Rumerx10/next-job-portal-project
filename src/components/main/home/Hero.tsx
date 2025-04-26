@@ -17,7 +17,7 @@ const Hero = () => {
         className="w-full h-screen object-cover"
       />
       <div className="absolute flex items-center justify-center top-0 left-0 w-full h-screen">
-        <div className="flex flex-col gap-20 w-full max-w-7xl">
+        <div className="flex flex-col gap-5 w-full max-w-7xl px-10">
           <div className="flex justify-between items-center w-full gap-20 mt-40">
             <div className="text-white">
               <h1 className="text-5xl font-semibold">Find Your Perfect Job Match</h1>
@@ -40,7 +40,7 @@ const Hero = () => {
               </p>
             </div>
             <div className="right">
-              <Image src="/hero-img.webp" height={1000} width={1000} alt="hero-img"  className="object-cover"/>
+              <Image src="/hero-img.webp" height={1000} width={1000} alt="hero-img"  className="border-2 border-red-600 h-96 w-96 object-cover"/>
               {/* hero image */}
             </div>
           </div>
@@ -50,9 +50,9 @@ const Hero = () => {
               <Image
                 src="/clients.webp"
                 alt="clients"
-                width={200}
-                height={60}
-                className="w-52 h-16 object-cover"
+                width={160}
+                height={40}
+                className="w-52 h-10 object-cover"
               />
             </div>
             <Link href="#" className="flex items-center gap-2 text-white">
