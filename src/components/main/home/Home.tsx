@@ -5,7 +5,7 @@ import PopularJobCategories from "./PopularJobCategories";
 
 const Home=()=>{
   return (
-    <div className="h-[1200px]">
+    <div className="">
       <Hero />
       <PopularJobCategories />
       <HowItWorks />
