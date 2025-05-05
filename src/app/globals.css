@@ -6,6 +6,8 @@
 @theme {
   --color-violet:#22218c;
   --color-textBlue:#1927D2;
+  --color-primaryBlue:#1967d2;
+  --color-bgGray:#f5f7fc;
 }
 
 @theme inline {
