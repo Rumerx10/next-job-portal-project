@@ -71,7 +71,7 @@ const FeaturedJobs = () => {
       <div className="flex flex-col gap-5 mt-10 max-w-7xl mx-auto">
         {data.map((category, index) => (
           <motion.div
-            initial={{ opacity: 0, x: 0 }}
+            initial={{ opacity: 0, x: -100 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
             key={index}
