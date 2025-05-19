@@ -1,4 +1,5 @@
 import DreamJob from "./DreamJob";
+import FeaturedCandidates from "./FeaturedCandidates";
 import FeaturedCities from "./FeaturedCities";
 import FeaturedJobs from "./FeaturedJobs";
 import Hero from "./Hero";
@@ -9,13 +10,14 @@ import PopularJobCategories from "./PopularJobCategories";
 
 const Home=()=>{
   return (
-    <div className="">
+    <div className="overflow-hidden">
       <Hero />
       <PopularJobCategories />
       <HowItWorks />
       <FeaturedJobs />
       <FeaturedCities />
       <DreamJob />
+      <FeaturedCandidates />
       <NewsArticles />
     </div>
   )

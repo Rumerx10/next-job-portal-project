@@ -9,19 +9,19 @@ const MobileNav = () => {
   const [isOpen, setOpen] = useState(false);
   return (
     <div>
-      <div className="z-50 fixed lg:hidden left-0 top-0 right-0 flex items-center justify-between px-5 bg-violet h-20">
+      <div className="z-40 fixed lg:hidden left-0 top-0 right-0 flex items-center justify-between px-5 bg-violet h-20">
         <LogoSvg />
         <Hamburger toggled={isOpen} toggle={setOpen} color="white" />
       </div>
       <div
         className={`fixed top-20 inset-0 ${
-          isOpen ? "bg-gray-100" : "bg-transparent pointer-events-none"
+          isOpen ? "backdrop-blur-2xl bg-white" : "bg-transparent pointer-events-none"
         }`}
         onClick={() => setOpen(!isOpen)}
       ></div>
       <div
-        className={`fixed ${
-          isOpen ? " z-50 translate-x-0" : "translate-x-full"
+        className={`fixed z-40 ${
+          isOpen ? "translate-x-0" : "translate-x-full"
         } duration-500 bg-[#2596be] top-20 right-0 bottom-0 p-5  w-[70%]`}
       >
         <div className="flex flex-col gap-3">

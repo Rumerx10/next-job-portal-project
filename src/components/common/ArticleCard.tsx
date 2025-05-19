@@ -1,6 +1,8 @@
 import React from "react";
 import Image from "next/image";
-import { FaArrowRight } from "react-icons/fa";
+import { RiArrowRightSLine } from "react-icons/ri";
+import Link from 'next/link';
+
 
 interface ImageProps {
   imgSrc: string;
@@ -20,11 +22,11 @@ const ArticleCard: React.FC<ImageProps> = ({
   className = "",
 }) => {
   return (
-    <div className="">
+    <div className="group bg-white p-2 rounded-lg">
       <div
-        className={`group relative flex flex-col w-full overflow-hidden cursor-pointer rounded-lg ${className}`}
+        className={`relative flex flex-col w-full overflow-hidden cursor-pointer rounded-lg ${className}`}
       >
-        <div className="flex rounded-lg overflow-hidden hover:scale-105 transition-transform duration-500">
+        <div className="flex rounded-lg overflow-hidden group-hover:scale-105 transition-transform duration-500">
           <Image
             src={imgSrc}
             height={260}
@@ -35,15 +37,25 @@ const ArticleCard: React.FC<ImageProps> = ({
         </div>
       </div>
       <div className="">
-        <div className="h-full w-full flex flex-col justify-end gap-2 py-8">
-          <h3 className="font-bold text-xl lg:text-2xl ">{title}</h3>
-          <div className="flex items-center w-full">
+        <div className="h-full w-full flex flex-col justify-end gap-4 px-5 py-6">
+          <div className="flex text-gray-500 items-center gap-5">
+            <p>{date}</p>
+            <div className="h-2 w-2 rounded-full bg-gray-500" />
             <p className="mr-2">{commentCount} comments</p>
-            <FaArrowRight
-              color="white"
-              className="group-hover:translate-x-2 transition-transform duration-500"
-            />
           </div>
+          <h3 className="font-bold text-xl lg:text-2xl ">{title}</h3>
+          <p className="text-gray-500">{desc}</p>
+          <Link href="" >
+            <div className="flex text-primaryBlue items-center w-full">
+              <p>Read More...</p>  
+              <RiArrowRightSLine
+                size={20}
+                color="primaryBlue"
+                className="group-hover:translate-x-2 transition-transform duration-500"
+              />
+            </div>
+          </Link>
+          
         </div>
       </div>
     </div>
