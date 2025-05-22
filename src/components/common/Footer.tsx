@@ -46,7 +46,7 @@ const Footer = () => {
   return (
     <div className="flex flex-col items-center text-white py-20 bg-primaryBlue justify-center w-full">
       <div className="flex flex-col lg:flex-row items-center lg:gap-40 w-full py-0 lg:py-20 max-w-7xl">
-        <div className="w-full lg:w-auto px-5">
+        <div className="w-full lg:w-auto px-5 lg:px-0">
           <LogoSvg />
           <div className="my-6">
             <h3 className="text-xl font-semibold">Call us</h3>

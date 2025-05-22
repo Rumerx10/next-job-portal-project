@@ -1,28 +1,31 @@
+
+
+
+
+import Image from "next/image";
 import React from "react";
-import { GiArchiveRegister } from "react-icons/gi";
 
 const HowItWorks = () => {
   const steps =[
     {
-      icon:"",
-      color:"",
-      bg:"",
-      title:"Register an account to start",
-      desc:"Achieve virtually any design and layout from within the one template."
+      img:"/howItWorks/img1.png",
+      title:"Register With Us",
+      desc:"The latest design trends meet hand-crafted templates in Sassio Collection."
     },
     {
-      icon:"",
-      color:"",
-      bg:"",
-      title:"Register an account to start",
-      desc:"Achieve virtually any design and layout from within the one template."
+      img:"/howItWorks/img2.png",
+      title:"Create Your Profile",
+      desc:"The latest design trends meet hand-crafted templates in Sassio Collection."
     },
     {
-      icon:"",
-      color:"",
-      bg:"",
-      title:"Register an account to start",
-      desc:"Achieve virtually any design and layout from within the one template."
+      img:"/howItWorks/img3.png",
+      title:"Upload Your Resume",
+      desc:"The latest design trends meet hand-crafted templates in Sassio Collection."
+    },
+    {
+      img:"/howItWorks/img4.png",
+      title:"Now Take a Rest",
+      desc:"The latest design trends meet hand-crafted templates in Sassio Collection."
     }
   ]
   return (
@@ -36,9 +39,9 @@ const HowItWorks = () => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 py-10 max-w-7xl">
         {steps.map((step,index)=>(
-          <div key={index} className="group flex flex-col p-10 items-center gap-5 bg-white shadow rounded-lg" >
-          <div className="flex items-center justify-center bg-blue-400 w-16 h-16 rounded-full">
-            <GiArchiveRegister size={40} />
+          <div key={index} className="group flex flex-col p-10 items-center gap-5 cursor-pointer bg-white hover:shadow-lg duration-300 rounded-lg" >
+          <div className="flex items-center justify-center overflow-hidden border-4 group-hover:border-primaryBlue w-26 h-26 duration-300  rounded-full">
+            <Image src={step.img} alt={step.title} width={150} height={150} />
           </div>
           <div className="flex flex-col gap-3">
             <h3 className="text-xl font-medium text-center">{step.title}</h3>

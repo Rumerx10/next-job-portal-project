@@ -75,21 +75,21 @@ const FeaturedJobs = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
             key={index}
-            className="group flex p-5 items-center gap-5 bg-white shadow rounded-lg"
+            className="group flex p-3 lg:p-5 items-center gap-3 lg:gap-5 bg-white shadow rounded-lg"
           >
-            <div className="group-hover:bg-[#1967d2] flex items-center justify-center bg-[#e2eaf8] rounded-full h-24 w-24 shrink-0 transition-all duration-500">
+            <div className="flex items-center justify-center bg-[#e2eaf8] rounded-full h-20 lg:h-24 w-20 lg:w-24 shrink-0 transition-all duration-500">
               <Image
                 src={category.icon}
                 alt="company logo"
                 width={50}
                 height={50}
-                className="group-hover:scale-110 transition-all duration-500"
+                className="group-hover:scale-110 lg:group-hover:scale-125 transition-all duration-500"
               />
             </div>
-            <div className="flex flex-col gap-1 w-full">
-              <h3 className="text-xl hover:text-primaryBlue font-semibold">{category.jobTitle}</h3>
+            <div className="flex flex-col gap-1 w-full cursor-pointer">
+              <h3 className="text-xl group-hover:text-primaryBlue font-semibold">{category.jobTitle}</h3>
               <div className="text-gray-500 text-sm flex flex-col lg:flex-row justify-between lg:items-center">
-                <div className="flex gap-5 items-center mb-3 lg:mb-0">
+                <div className="flex flex-wrap gap-3 md:gap-5 items-center mb-3 lg:mb-0">
                   <div className="flex items-center gap-1"><PiHandbagFill size={20} /> {category.orgName}</div>
                   <div className="flex items-center gap-1"><CiLocationOn size={20} /> {category.location}</div>
                   <div className="flex items-center gap-1"><MdOutlineAccessTime size={20} /> {category.createdAt}</div>
@@ -99,7 +99,7 @@ const FeaturedJobs = () => {
                   {category.jobType.map((type, index) => (
                     <span
                       key={index}
-                      className={`text-sm mr-2 px-4 py-1 rounded-xl ${type==="Urgent"?"text-[#f9ab00] bg-[#f9ab0026]":type==="Private"?"text-[#34a853] bg-[#34a85326]":"text-[#1967d2] bg-[#1967d226]"}`}
+                      className={`text-sm mr-2 px-4 py-1 whitespace-nowrap rounded-xl ${type==="Urgent"?"text-[#f9ab00] bg-[#f9ab0026]":type==="Private"?"text-[#34a853] bg-[#34a85326]":"text-[#1967d2] bg-[#1967d226]"}`}
                     >
                       {type}
                     </span>
