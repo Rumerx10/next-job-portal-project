@@ -11,7 +11,7 @@ const NavElements = () => {
   console.log(activeLink);
   
   return (
-    <div className="px-5 lg:px-0 flex items-center justify-between h-full w-full max-w-7xl">
+    <div className="container px-4 lg:px-0 flex items-center justify-between h-full">
       <div>
         <LogoSvg />
       </div>
@@ -27,7 +27,7 @@ const NavElements = () => {
       </div>     
       <div className="hidden lg:flex gap-6">
         <div className="border px-6 py-3 bg-transparent hover:bg-white text-white hover:text-[#1927D2] rounded-full duration-300 cursor-pointer">Login / Register</div>
-        <div className="border px-6 py-3 rounded-full text-[#1967D2] hover:text-white bg-white hover:bg-transparent duration-300 cursor-pointer">Job Post</div>
+        <div className="border px-6 py-3 rounded-full text-primaryBlue hover:text-white bg-white hover:bg-transparent duration-300 cursor-pointer">Job Post</div>
       </div>     
     </div>
   );

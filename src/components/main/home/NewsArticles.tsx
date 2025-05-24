@@ -1,5 +1,4 @@
 import React from "react";
-import { GiArchiveRegister } from "react-icons/gi";
 import ArticleCard from "./../../common/ArticleCard";
 
 const NewsArticles = () => {
@@ -27,7 +26,7 @@ const NewsArticles = () => {
     },
   ];
   return (
-    <div className="bg-[#f5f7fc] px-10 py-16 flex flex-col items-center justify-center">
+    <div className="bg-[#f5f7fc] px-4 py-16 flex flex-col items-center justify-center">
       <div className="flex flex-col items-center justify-center gap-2 lg:gap-5 ">
         <h1 className="text-2xl md:text-3xl lg:text-4xl lg:text-center font-semibold">
           Recent News Articles
@@ -36,7 +35,7 @@ const NewsArticles = () => {
           Fresh job related news content posted each day.
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 py-10 max-w-7xl">
+      <div className="container max-auto w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 py-10">
         {data.map((item, index) => (
           <div
             key={index}

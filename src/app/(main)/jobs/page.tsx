@@ -2,10 +2,8 @@ import Jobs from '@/components/main/Jobs/Jobs';
 
 
 const page=()=>{
-  return (
-    <div>
-      <Jobs />
-    </div>
+  return (    
+    <Jobs />
   )
 }
 

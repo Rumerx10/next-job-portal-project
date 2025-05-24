@@ -10,7 +10,7 @@ const DreamJob = () => {
         <Image src="/bg5.webp" alt="" height={500} width={2000} className="object-cover w-full h-80 lg:h-auto" />
 
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="flex flex-col items-center justify-center gap-2 lg:gap-5 text-white">
+        <div className="container max-auto flex flex-col items-center justify-center gap-2 lg:gap-5 text-white">
           <motion.div
             initial={{y:60}}
             whileInView={{y:0}}

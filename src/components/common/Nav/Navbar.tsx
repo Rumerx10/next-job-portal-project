@@ -25,7 +25,7 @@ const Navbar = () => {
       />
       <MobileNav />
       <div
-        className={`z-40 absolute hidden lg:flex items-center justify-center left-0 top-0 right-0  ${isScrolled ? "hidden" : "bg-transparent"} text-white h-24`}
+        className={`z-40 absolute hidden lg:flex items-center justify-center left-0 top-0 right-0  ${isScrolled ? "hidden" : "bg-violet"} text-white h-24`}
       >
         <NavElements />
       </div>

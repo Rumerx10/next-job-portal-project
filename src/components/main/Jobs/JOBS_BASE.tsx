@@ -42,8 +42,6 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
-import DesktopFilter from "./filter/DesktopFilter";
-import MobileFilter from "./filter/MobileFilter";
 const Jobs: React.FC = () => {
   const [activeTab, setActiveTab] = useState("jobs");
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
@@ -313,50 +311,435 @@ const Jobs: React.FC = () => {
     setSalaryRange([50, 150]);
   };
   const totalJobs = jobsData.length;
-  const itemsPerPage = 4;
+  const itemsPerPage = 8;
   const totalPages = Math.ceil(totalJobs / itemsPerPage);
   const paginatedJobs = jobsData.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage,
   );
   return (
-    <div className="lg:container mx-auto w-full flex min-h-screen  bg-gray-50 mt-20 lg:mt-24">
-      <div className="flex flex-col border-4 border-red-500">
+    <div className="flex min-h-screen bg-gray-50">
+      {/* Sidebar */}
+      <div className="w-64 bg-white border-r border-gray-200 fixed h-full flex flex-col z-30">
+        <div className="p-6">
+          <div className="flex items-center space-x-2">
+            <div className="bg-blue-600 text-white p-2 rounded-md">
+              <i className="fas fa-briefcase text-xl"></i>
+            </div>
+            <h1 className="text-xl font-bold">JobConnect</h1>
+          </div>
+        </div>
+        <nav className="flex-1 px-4 py-2">
+          <ul className="space-y-1">
+            <li>
+              <a
+                href="https://readdy.ai/home/1f363828-f8fa-4c5d-86e2-a12587e66c62/bfce1478-c156-4880-b2bf-4dddff2305b8"
+                data-readdy="true"
+                className="flex items-center w-full px-3 py-2 text-sm font-medium rounded-md text-gray-700 hover:text-blue-600 hover:bg-blue-50 cursor-pointer"
+              >
+                <i className="fas fa-chart-pie mr-3"></i>
+                Dashboard
+              </a>
+            </li>
+            <li>
+              <Button
+                variant={activeTab === "jobs" ? "default" : "ghost"}
+                className="w-full justify-start !rounded-button whitespace-nowrap"
+                onClick={() => setActiveTab("jobs")}
+              >
+                <i className="fas fa-briefcase mr-3"></i>
+                Jobs
+              </Button>
+            </li>
+            <li>
+              <Button
+                variant={activeTab === "applications" ? "default" : "ghost"}
+                className="w-full justify-start !rounded-button whitespace-nowrap"
+                onClick={() => setActiveTab("applications")}
+              >
+                <i className="fas fa-file-alt mr-3"></i>
+                Applications
+              </Button>
+            </li>
+            <li>
+              <Button
+                variant={activeTab === "messages" ? "default" : "ghost"}
+                className="w-full justify-start !rounded-button whitespace-nowrap"
+                onClick={() => setActiveTab("messages")}
+              >
+                <i className="fas fa-comment-alt mr-3"></i>
+                Messages
+                <Badge className="ml-auto bg-blue-500">3</Badge>
+              </Button>
+            </li>
+            <li>
+              <Button
+                variant={activeTab === "settings" ? "default" : "ghost"}
+                className="w-full justify-start !rounded-button whitespace-nowrap"
+                onClick={() => setActiveTab("settings")}
+              >
+                <i className="fas fa-cog mr-3"></i>
+                Settings
+              </Button>
+            </li>
+          </ul>
+        </nav>
+        <div className="p-4 border-t border-gray-200">
+          <div className="flex items-center space-x-3">
+            <Avatar className="cursor-pointer">
+              <AvatarImage src="https://readdy.ai/api/search-image?query=professional%20portrait%20photo%20of%20a%20young%20man%20with%20short%20dark%20hair%20wearing%20a%20business%20casual%20outfit%20neutral%20background%20high%20quality%20professional%20headshot&width=100&height=100&seq=113&orientation=squarish" />
+              <AvatarFallback>JD</AvatarFallback>
+            </Avatar>
+            <div>
+              <p className="text-sm font-medium">John Doe</p>
+              <p className="text-xs text-gray-500">UI/UX Designer</p>
+            </div>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="ml-auto !rounded-button whitespace-nowrap"
+            >
+              <i className="fas fa-ellipsis-v"></i>
+            </Button>
+          </div>
+        </div>
+      </div>
+      {/* Main Content */}
+      <div className="ml-64 flex-1 flex flex-col">
+        {/* Header */}
+        <header className="bg-white border-b border-gray-200 sticky top-0 z-20">
+          <div className="flex items-center justify-between p-4">
+            <div>
+              <h2 className="text-2xl font-bold">Recommended Jobs</h2>
+              <p className="text-gray-500">{formattedDate}</p>
+            </div>
+            <div className="flex items-center space-x-6">
+              <div className="relative">
+                <Input
+                  type="text"
+                  placeholder="Search jobs, companies..."
+                  className="w-64 pl-10 pr-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                />
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+              </div>
+              <div className="relative cursor-pointer">
+                <Bell className="h-6 w-6 text-gray-600" />
+                <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                  4
+                </span>
+              </div>
+              <Avatar className="cursor-pointer">
+                <AvatarImage src="https://readdy.ai/api/search-image?query=professional%20portrait%20photo%20of%20a%20young%20man%20with%20short%20dark%20hair%20wearing%20a%20business%20casual%20outfit%20neutral%20background%20high%20quality%20professional%20headshot&width=100&height=100&seq=114&orientation=squarish" />
+                <AvatarFallback>JD</AvatarFallback>
+              </Avatar>
+            </div>
+          </div>
+        </header>
         {/* Content */}
-
-
-
-
-
-        <div className="flex w-full">
-
-
+        <div className="flex flex-1">
           {/* Filters Sidebar - Desktop */}
-          <DesktopFilter />
-
-
-
-
-
-
-
-
-
-
-
+          <div className="hidden md:block w-72 bg-white border-r border-gray-200 p-6 overflow-y-auto">
+            <div className="flex items-center justify-between mb-6">
+              <h3 className="text-lg font-semibold">Filters</h3>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={clearAllFilters}
+                className="text-blue-600 hover:text-blue-700 !rounded-button whitespace-nowrap"
+              >
+                Clear all
+              </Button>
+            </div>
+            {/* Search Keyword */}
+            <div className="mb-6">
+              <label className="block text-sm font-medium mb-2">Search</label>
+              <div className="relative">
+                <Input
+                  type="text"
+                  placeholder="Job title, keyword, company"
+                  className="w-full pl-10 pr-4 py-2 border rounded-md"
+                />
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+              </div>
+            </div>
+            {/* Location */}
+            <Collapsible defaultOpen className="mb-6">
+              <CollapsibleTrigger className="flex items-center justify-between w-full text-sm font-medium mb-2">
+                <span>Location</span>
+                <ChevronDown className="h-4 w-4" />
+              </CollapsibleTrigger>
+              <CollapsibleContent>
+                <ScrollArea className="h-48">
+                  <div className="space-y-2">
+                    {locations.map((location) => (
+                      <div key={location} className="flex items-center">
+                        <Checkbox
+                          id={`location-${location}`}
+                          checked={selectedLocations.includes(location)}
+                          onCheckedChange={() => toggleLocation(location)}
+                          className="mr-2"
+                        />
+                        <label
+                          htmlFor={`location-${location}`}
+                          className="text-sm cursor-pointer"
+                        >
+                          {location}
+                        </label>
+                      </div>
+                    ))}
+                  </div>
+                </ScrollArea>
+              </CollapsibleContent>
+            </Collapsible>
+            {/* Salary Range */}
+            <Collapsible defaultOpen className="mb-6">
+              <CollapsibleTrigger className="flex items-center justify-between w-full text-sm font-medium mb-2">
+                <span>Salary Range (K/year)</span>
+                <ChevronDown className="h-4 w-4" />
+              </CollapsibleTrigger>
+              <CollapsibleContent>
+                <div className="px-1">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-sm">${salaryRange[0]}K</span>
+                    <span className="text-sm">${salaryRange[1]}K</span>
+                  </div>
+                  <Slider
+                    defaultValue={salaryRange}
+                    min={50}
+                    max={200}
+                    step={5}
+                    value={salaryRange}
+                    onValueChange={setSalaryRange}
+                    className="mb-2"
+                  />
+                </div>
+              </CollapsibleContent>
+            </Collapsible>
+            {/* Job Type */}
+            <Collapsible defaultOpen className="mb-6">
+              <CollapsibleTrigger className="flex items-center justify-between w-full text-sm font-medium mb-2">
+                <span>Job Type</span>
+                <ChevronDown className="h-4 w-4" />
+              </CollapsibleTrigger>
+              <CollapsibleContent>
+                <div className="space-y-2">
+                  {jobTypes.map((type) => (
+                    <div key={type} className="flex items-center">
+                      <Checkbox
+                        id={`type-${type}`}
+                        checked={selectedJobTypes.includes(type)}
+                        onCheckedChange={() => toggleJobType(type)}
+                        className="mr-2"
+                      />
+                      <label
+                        htmlFor={`type-${type}`}
+                        className="text-sm cursor-pointer"
+                      >
+                        {type}
+                      </label>
+                    </div>
+                  ))}
+                </div>
+              </CollapsibleContent>
+            </Collapsible>
+            {/* Experience Level */}
+            <Collapsible defaultOpen className="mb-6">
+              <CollapsibleTrigger className="flex items-center justify-between w-full text-sm font-medium mb-2">
+                <span>Experience Level</span>
+                <ChevronDown className="h-4 w-4" />
+              </CollapsibleTrigger>
+              <CollapsibleContent>
+                <div className="space-y-2">
+                  {experienceLevels.map((level) => (
+                    <div key={level} className="flex items-center">
+                      <Checkbox
+                        id={`exp-${level}`}
+                        checked={selectedExperience.includes(level)}
+                        onCheckedChange={() => toggleExperience(level)}
+                        className="mr-2"
+                      />
+                      <label
+                        htmlFor={`exp-${level}`}
+                        className="text-sm cursor-pointer"
+                      >
+                        {level}
+                      </label>
+                    </div>
+                  ))}
+                </div>
+              </CollapsibleContent>
+            </Collapsible>
+            {/* Skills */}
+            <Collapsible defaultOpen className="mb-6">
+              <CollapsibleTrigger className="flex items-center justify-between w-full text-sm font-medium mb-2">
+                <span>Skills</span>
+                <ChevronDown className="h-4 w-4" />
+              </CollapsibleTrigger>
+              <CollapsibleContent>
+                <ScrollArea className="h-48">
+                  <div className="space-y-2">
+                    {skills.map((skill) => (
+                      <div key={skill} className="flex items-center">
+                        <Checkbox
+                          id={`skill-${skill}`}
+                          checked={selectedSkills.includes(skill)}
+                          onCheckedChange={() => toggleSkill(skill)}
+                          className="mr-2"
+                        />
+                        <label
+                          htmlFor={`skill-${skill}`}
+                          className="text-sm cursor-pointer"
+                        >
+                          {skill}
+                        </label>
+                      </div>
+                    ))}
+                  </div>
+                </ScrollArea>
+              </CollapsibleContent>
+            </Collapsible>
+            <Button className="w-full bg-blue-600 hover:bg-blue-700 !rounded-button whitespace-nowrap">
+              Apply Filters
+            </Button>
+          </div>
           {/* Mobile Filter Button */}
-          <MobileFilter />
-
-
-
-
-
-
-
-
-
+          <div className="md:hidden fixed bottom-4 right-4 z-20">
+            <Button
+              onClick={() => setShowMobileFilter(true)}
+              className="rounded-full h-14 w-14 shadow-lg bg-blue-600 hover:bg-blue-700 !rounded-button whitespace-nowrap"
+            >
+              <Filter className="h-6 w-6" />
+            </Button>
+          </div>
+          {/* Mobile Filter Drawer */}
+          {showMobileFilter && (
+            <div className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden">
+              <div className="absolute right-0 top-0 h-full w-80 bg-white shadow-xl p-4 overflow-y-auto">
+                <div className="flex items-center justify-between mb-6">
+                  <h3 className="text-lg font-semibold">Filters</h3>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={() => setShowMobileFilter(false)}
+                    className="!rounded-button whitespace-nowrap"
+                  >
+                    <X className="h-5 w-5" />
+                  </Button>
+                </div>
+                {/* Search Keyword */}
+                <div className="mb-6">
+                  <label className="block text-sm font-medium mb-2">
+                    Search
+                  </label>
+                  <div className="relative">
+                    <Input
+                      type="text"
+                      placeholder="Job title, keyword, company"
+                      className="w-full pl-10 pr-4 py-2 border rounded-md"
+                    />
+                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+                  </div>
+                </div>
+                {/* Location */}
+                <Collapsible defaultOpen className="mb-6">
+                  <CollapsibleTrigger className="flex items-center justify-between w-full text-sm font-medium mb-2">
+                    <span>Location</span>
+                    <ChevronDown className="h-4 w-4" />
+                  </CollapsibleTrigger>
+                  <CollapsibleContent>
+                    <ScrollArea className="h-36">
+                      <div className="space-y-2">
+                        {locations.map((location) => (
+                          <div key={location} className="flex items-center">
+                            <Checkbox
+                              id={`mobile-location-${location}`}
+                              checked={selectedLocations.includes(location)}
+                              onCheckedChange={() => toggleLocation(location)}
+                              className="mr-2"
+                            />
+                            <label
+                              htmlFor={`mobile-location-${location}`}
+                              className="text-sm cursor-pointer"
+                            >
+                              {location}
+                            </label>
+                          </div>
+                        ))}
+                      </div>
+                    </ScrollArea>
+                  </CollapsibleContent>
+                </Collapsible>
+                {/* Salary Range */}
+                <Collapsible defaultOpen className="mb-6">
+                  <CollapsibleTrigger className="flex items-center justify-between w-full text-sm font-medium mb-2">
+                    <span>Salary Range (K/year)</span>
+                    <ChevronDown className="h-4 w-4" />
+                  </CollapsibleTrigger>
+                  <CollapsibleContent>
+                    <div className="px-1">
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="text-sm">${salaryRange[0]}K</span>
+                        <span className="text-sm">${salaryRange[1]}K</span>
+                      </div>
+                      <Slider
+                        defaultValue={salaryRange}
+                        min={50}
+                        max={200}
+                        step={5}
+                        value={salaryRange}
+                        onValueChange={setSalaryRange}
+                        className="mb-2"
+                      />
+                    </div>
+                  </CollapsibleContent>
+                </Collapsible>
+                {/* Job Type */}
+                <Collapsible defaultOpen className="mb-6">
+                  <CollapsibleTrigger className="flex items-center justify-between w-full text-sm font-medium mb-2">
+                    <span>Job Type</span>
+                    <ChevronDown className="h-4 w-4" />
+                  </CollapsibleTrigger>
+                  <CollapsibleContent>
+                    <div className="space-y-2">
+                      {jobTypes.map((type) => (
+                        <div key={type} className="flex items-center">
+                          <Checkbox
+                            id={`mobile-type-${type}`}
+                            checked={selectedJobTypes.includes(type)}
+                            onCheckedChange={() => toggleJobType(type)}
+                            className="mr-2"
+                          />
+                          <label
+                            htmlFor={`mobile-type-${type}`}
+                            className="text-sm cursor-pointer"
+                          >
+                            {type}
+                          </label>
+                        </div>
+                      ))}
+                    </div>
+                  </CollapsibleContent>
+                </Collapsible>
+                <div className="flex space-x-3 mt-6">
+                  <Button
+                    variant="outline"
+                    className="flex-1 !rounded-button whitespace-nowrap"
+                    onClick={clearAllFilters}
+                  >
+                    Clear all
+                  </Button>
+                  <Button
+                    className="flex-1 bg-blue-600 hover:bg-blue-700 !rounded-button whitespace-nowrap"
+                    onClick={() => setShowMobileFilter(false)}
+                  >
+                    Apply
+                  </Button>
+                </div>
+              </div>
+            </div>
+          )}
           {/* Jobs Grid */}
-          <div className="w-10/12 flex-1 p-4 bg-gray-50 overflow-y-auto  bg-yellow-500">
+          <div className="flex-1 p-6 bg-gray-50 overflow-y-auto">
             {/* Jobs Header */}
             <div className="flex flex-col md:flex-row md:items-center justify-between mb-6 bg-white p-4 rounded-lg shadow-sm">
               <div className="mb-4 md:mb-0">
@@ -408,7 +791,7 @@ const Jobs: React.FC = () => {
             </div>
             {/* Jobs Grid/List */}
             {viewMode === "grid" ? (
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                 {paginatedJobs.map((job) => (
                   <Card
                     key={job.id}

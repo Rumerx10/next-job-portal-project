@@ -41,7 +41,7 @@ const PopularJobCategories = () => {
     },
   ];
   return (
-    <div className="bg-[#f5f7fc] px-10 py-16">
+    <div className="bg-[#f5f7fc] px-4 py-16">
       <div className="flex flex-col items-center justify-center gap-2 lg:gap-5 ">
         <h1 className="text-2xl md:text-3xl lg:text-4xl lg:text-center font-semibold">
           Popular Job Categories
@@ -50,14 +50,14 @@ const PopularJobCategories = () => {
           2020 jobs live - 293 added today.
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10 max-w-7xl mx-auto">
+      <div className="container mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mt-10">
         {data.map((item, index) => (
           <div
             key={index}
             className="group flex flex-col p-5 items-center gap-5 bg-white shadow rounded-lg"
           >
-            <div className="flex items-center justify-center rounded-full h-20 w-20 transition-all duration-500">
-              <Image src={item.img} alt={item.title} height={80} width={80} />
+            <div className="flex items-center justify-center rounded-full ring-2 p-3 h-18 w-18 transition-all duration-500">
+              <Image src={item.img} alt={item.title} height={80} width={80} className="object-cover" />
             </div>
             <div className="flex flex-col gap-1">
               <h3 className="text-xl font-semibold text-center">{item.title}</h3>
