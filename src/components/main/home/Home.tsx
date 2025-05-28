@@ -1,3 +1,4 @@
+import Blog from "../blog/Blog";
 import DreamJob from "./DreamJob";
 import FeaturedCandidates from "./FeaturedCandidates";
 import FeaturedCities from "./FeaturedCities";
@@ -11,6 +12,7 @@ import PopularJobCategories from "./PopularJobCategories";
 const Home=()=>{
   return (
     <div className="overflow-hidden">
+      <Blog />
       <Hero />
       <PopularJobCategories />
       <HowItWorks />

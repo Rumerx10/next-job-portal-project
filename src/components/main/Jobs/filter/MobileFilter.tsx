@@ -8,24 +8,40 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
-  Bell,
   ChevronDown,
-  ChevronLeft,
-  ChevronRight,
   Filter,
-  Grid,
-  List,
-  MapPin,
   Search,
-  SlidersHorizontal,
   X,
 } from "lucide-react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { useState } from "react";
 import { Slider } from "@/components/ui/slider";
-import { jobTypes, locations } from "../Jobs";
+import { experienceLevels, jobTypes, locations, skills } from "@/docs/docs";
 
-const MobileFilter = () => {
+
+type MobileFilterProps = {
+  setShowMobileFilter: (show: boolean) => void;
+  showMobileFilter: boolean;
+  selectedLocations: string[];
+  toggleLocation: (location: string) => void;
+  salaryRange?: [number, number];
+  setSalaryRange: (range: [number, number]) => void;
+  selectedJobTypes: string[];
+  toggleJobType: (type: string) => void;
+  clearAllFilters: () => void;
+};
+
+const MobileFilter = ({
+  setShowMobileFilter,
+  showMobileFilter,
+  selectedLocations,
+  toggleLocation,
+  salaryRange = [50, 150],
+  setSalaryRange,
+  selectedJobTypes,
+  toggleJobType,
+  clearAllFilters
+}: MobileFilterProps) => {
   return (
     <div>
       {/* Mobile Filter Button */}

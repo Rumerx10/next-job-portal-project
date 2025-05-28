@@ -38,7 +38,7 @@ const FeaturedCities = () => {
             Explore job opportunities in these popular cities.
           </p>
         </div>
-        <div className="container mx-auto flex w-full border-4 border-red-500">
+        <div className="container mx-auto flex w-full">
           <div className="flex flex-col w-full lg:flex-row gap-5 justify-between">
             <div className="flex flex-col lg:flex-row gap-5 w-full">
               <div className="flex w-full lg:w-4/12 h-auto">

@@ -92,7 +92,7 @@ const Hero = () => {
                       alt="clients"
                       width={160}
                       height={40}
-                      className="w-52 h-10 object-cover"
+                      className="w-52 h-10 object-contain"
                     />
                   </div>
                   <Link

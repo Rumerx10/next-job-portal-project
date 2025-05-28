@@ -7,28 +7,40 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
-import {
-  Bell,
-  ChevronDown,
-  ChevronLeft,
-  ChevronRight,
-  Filter,
-  Grid,
-  List,
-  MapPin,
-  Search,
-  SlidersHorizontal,
-  X,
-} from "lucide-react";
+import { ChevronDown, Search } from "lucide-react";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { useState } from "react";
 import { Slider } from "@/components/ui/slider";
-import { experienceLevels, jobTypes, locations, skills } from "../Jobs";
+import { experienceLevels, jobTypes, locations, skills } from "@/docs/docs";
 
+interface DesktopFilterProps {
+  clearAllFilters: () => void;
+  selectedLocations: string[];
+  toggleLocation: (location: string) => void;
+  salaryRange?: [number, number];
+  setSalaryRange?: (range: [number, number]) => void;
+  selectedJobTypes?: string[];
+  toggleJobType?: (type: string) => void;
+  selectedExperience?: string[];
+  toggleExperience?: (level: string) => void;
+  selectedSkills?: string[];
+  toggleSkill?: (skill: string) => void;
+}
 
-const DesktopFilter = () => {
+const DesktopFilter: React.FC<DesktopFilterProps> = ({
+  clearAllFilters,
+  selectedLocations,
+  toggleLocation,
+  salaryRange = [50, 150],
+  setSalaryRange,
+  selectedJobTypes = [],
+  toggleJobType = () => {},
+  selectedExperience = [],
+  toggleExperience = () => {},
+  selectedSkills = [],
+  toggleSkill = () => {},
+}) => {
   return (
-    <div className="border-4 hidden lg:block w-72 bg-white border-pink-200 p-6 overflow-y-auto">
+    <div className="hidden lg:block w-72 bg-gray-100 p-6 overflow-y-auto">
       <div className="flex items-center justify-between mb-6">
         <h3 className="text-lg font-semibold">Filters</h3>
         <Button
@@ -59,7 +71,7 @@ const DesktopFilter = () => {
           <ChevronDown className="h-4 w-4" />
         </CollapsibleTrigger>
         <CollapsibleContent>
-          <ScrollArea className="h-48">
+          <ScrollArea className="h-auto">
             <div className="space-y-2">
               {locations.map((location) => (
                 <div key={location} className="flex items-center">
