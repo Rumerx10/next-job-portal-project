@@ -220,3 +220,20 @@ export const jobsData = [
     matchPercentage: 83,
   },
 ];
+
+
+
+export const AboutData = [
+  {
+    value: "4M",
+    desc: "4 million daily active users"
+  },
+  {
+    value: "12k",
+    desc: "Over 12k open job positions"
+  },
+  {
+    value: "20M",
+    desc: "Over 20 million stories shared"
+  }
+];
