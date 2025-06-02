@@ -6,6 +6,54 @@ export const links = [
   { label: "About Us", href: "/about-us" },
 ];
 
+export const JobsData = [
+  {
+    icon: "/segment.webp",
+    jobTitle: "Software Engineer (Android), Libraries",
+    orgName: "Segment",
+    location: "London, UK",
+    createdAt: "11 hours ago",
+    salaryRange: "$35k - $45k",
+    jobType: ["Full Time", "Private", "Urgent"],
+  },
+  {
+    icon: "/catalyst.webp",
+    jobTitle: "Recruiting Coordinator",
+    orgName: "Catalyst",
+    location: "London, UK",
+    createdAt: "11 hours ago",
+    salaryRange: "$35k - $45k",
+    jobType: ["Freelancer", "Private", "Urgent"],
+  },
+  {
+    icon: "/invision.webp",
+    jobTitle: "Product Manager, Studio",
+    orgName: "Upwork",
+    location: "London, UK",
+    createdAt: "11 hours ago",
+    salaryRange: "$35k - $45k",
+    jobType: ["Temporary", "Private", "Urgent"],
+  },
+  {
+    icon: "/up.webp",
+    jobTitle: "Senior Product Designer",
+    orgName: "Figma",
+    location: "London, UK",
+    createdAt: "11 hours ago",
+    salaryRange: "$35k - $45k",
+    jobType: ["Full Time", "Private", "Urgent"],
+  },
+  {
+    icon: "/figma.webp",
+    jobTitle: "Software Engineer (Android), Libraries",
+    orgName: "Figma",
+    location: "London, UK",
+    createdAt: "11 hours ago",
+    salaryRange: "$35k - $45k",
+    jobType: ["Freelancer", "Private", "Urgent"],
+  },
+];
+
 
 export const locations = [
   "Remote",
@@ -42,7 +90,7 @@ export const jobTypes = [
   "Contract",
   ];
 
-export const jobsData = [
+export const JobsDataList = [
   {
     id: 1,
     company: "TechCorp Inc.",

@@ -12,7 +12,6 @@ import PopularJobCategories from "./PopularJobCategories";
 const Home=()=>{
   return (
     <div className="overflow-hidden">
-      <Blog />
       <Hero />
       <PopularJobCategories />
       <HowItWorks />

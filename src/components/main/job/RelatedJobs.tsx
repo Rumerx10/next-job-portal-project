@@ -1,77 +1,21 @@
-"use client";
 
 import Image from "next/image";
-import React from "react";
+import { motion } from "framer-motion";
+import { JobsData } from "@/docs/docs";
+import { RiBookmarkLine } from "react-icons/ri";
 import { PiHandbagFill } from "react-icons/pi";
-import { CiLocationOn } from "react-icons/ci";
 import { MdOutlineAccessTime } from "react-icons/md";
 import { BsCashCoin } from "react-icons/bs";
-import { motion } from "framer-motion";
-import { RiBookmarkLine } from "react-icons/ri";
+import {  CiLocationOn } from "react-icons/ci";
 
 
-const data = [
-  {
-    icon: "/segment.webp",
-    jobTitle: "Software Engineer (Android), Libraries",
-    orgName: "Segment",
-    location: "London, UK",
-    createdAt: "11 hours ago",
-    salaryRange: "$35k - $45k",
-    jobType: ["Full Time", "Private", "Urgent"],
-  },
-  {
-    icon: "/catalyst.webp",
-    jobTitle: "Recruiting Coordinator",
-    orgName: "Catalyst",
-    location: "London, UK",
-    createdAt: "11 hours ago",
-    salaryRange: "$35k - $45k",
-    jobType: ["Freelancer", "Private", "Urgent"],
-  },
-  {
-    icon: "/invision.webp",
-    jobTitle: "Product Manager, Studio",
-    orgName: "Upwork",
-    location: "London, UK",
-    createdAt: "11 hours ago",
-    salaryRange: "$35k - $45k",
-    jobType: ["Temporary", "Private", "Urgent"],
-  },
-  {
-    icon: "/up.webp",
-    jobTitle: "Senior Product Designer",
-    orgName: "Figma",
-    location: "London, UK",
-    createdAt: "11 hours ago",
-    salaryRange: "$35k - $45k",
-    jobType: ["Full Time", "Private", "Urgent"],
-  },
-  {
-    icon: "/figma.webp",
-    jobTitle: "Software Engineer (Android), Libraries",
-    orgName: "Figma",
-    location: "London, UK",
-    createdAt: "11 hours ago",
-    salaryRange: "$35k - $45k",
-    jobType: ["Freelancer", "Private", "Urgent"],
-  },
-];
-
-const FeaturedJobs = () => {
+const RelatedJobs =()=>{
   return (
-    <div className="bg-bgGray py-16 px-4">
-      <div className="flex flex-col items-center justify-center px-4 gap-2 lg:gap-5 ">
-        <h1 className="text-2xl md:text-3xl lg:text-4xl lg:text-center font-semibold">
-          Featured Jobs{" "}
-        </h1>
-        <p className="text-medium text-gray-500 text-center">
-          Know your worth and find the job that qualify your life
-        </p>
-      </div>
+    <div>
+      <h3 className="text-3xl font-semibold my-5">Related Jobs</h3>
       <div className="">
         <div className="container mx-auto mt-10 flex flex-col gap-5">
-          {data.map((category, index) => (
+          {JobsData.map((category, index) => (
             <motion.div
               initial={{ opacity: 0, x: -100 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -143,7 +87,7 @@ const FeaturedJobs = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default FeaturedJobs;
+export default RelatedJobs;
