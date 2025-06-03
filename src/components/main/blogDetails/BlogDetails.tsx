@@ -86,6 +86,13 @@ const BlogDetails = () => {
 
 
 
+
+
+
+
+
+
+
           </div>
         </div>
       </div>
