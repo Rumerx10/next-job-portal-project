@@ -6,10 +6,7 @@ import React, { useState } from 'react';
 
 
 const NavElements = () => {
-  const [activeLink, setActiveLink] = useState("Home")
-
-  console.log(activeLink);
-  
+  const [activeLink, setActiveLink] = useState("Home");  
   return (
     <div className="container px-4 lg:px-0 flex items-center justify-between h-full">
       <div>

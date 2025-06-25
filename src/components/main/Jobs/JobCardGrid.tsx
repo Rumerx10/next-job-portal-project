@@ -33,7 +33,7 @@ const JobCardGrid: React.FC<JobCardListProps> = ({ jobs }) => {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
       {jobs.map((job) => (
-        <Link href={`/jobs/${job.id}`}>
+        <Link key={job.id} href={`/jobs/${job.id}`}>
         <Card
           key={job.id}
           className="shadow-sm hover:shadow-md transition-shadow"

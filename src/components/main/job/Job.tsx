@@ -1,8 +1,8 @@
 "use client";
 
+import { JobsDataList } from "@/docs/docs";
 import Image from "next/image";
 import React from "react";
-import { motion } from "framer-motion";
 import { PiHandbagFill } from "react-icons/pi";
 import { MdOutlineAccessTime } from "react-icons/md";
 import { BsCashCoin } from "react-icons/bs";
@@ -12,8 +12,14 @@ import { CiLocationOn } from "react-icons/ci";
 import RelatedJobs from "./RelatedJobs";
 import CompanyProfileCard from "./CompanyProfileCard";
 import JobOverviewCard from "./JobOverviewCard";
+import { useParams } from "next/navigation";
 
 const Job = () => {
+  const {id:jobId} = useParams();
+
+  const jobData =  JobsDataList.find((job)=>job.id===Number(jobId));
+  console.log(jobData);
+
   const data = {
     icon: "/segment.webp",
     title: "Software Engineer (Android), Libraries",
@@ -39,30 +45,30 @@ const Job = () => {
             </div>
             <div className="flex flex-col w-full cursor-pointer">
               <h3 className="text-xl group-hover:text-primaryBlue font-semibold">
-                {data.title}
+                {jobData?.title}
               </h3>
               <div className="text-gray-500 text-sm flex flex-col lg:flex-row gap-2 lg:gap-5 lg:items-center justify-between">
                 <div className="flex flex-col lg:flex-row lg:gap-5">
                   <div className="flex flex-wrap gap-3 md:gap-5 items-center mb-3 lg:mb-0">
                     <div className="flex items-center gap-1">
-                      <PiHandbagFill size={20} /> {data.orgName}
+                      <PiHandbagFill size={20} /> {jobData?.company}
                     </div>
                     <div className="flex items-center gap-1">
-                      <CiLocationOn size={20} /> {data.location}
+                      <CiLocationOn size={20} /> {jobData?.location}
                     </div>
                     <div className="flex items-center gap-1">
-                      <MdOutlineAccessTime size={20} /> {data.createdAt}
+                      <MdOutlineAccessTime size={20} /> {jobData?.postedDate}
                     </div>
                     <div className="flex items-center gap-1">
                       <BsCashCoin size={20} />
-                      {data.salaryRange}
+                      {jobData?.salary}
                     </div>
                   </div>
                   <div className="flex flex-wrap gap-3 items-center">
-                    {data.jobType.map((type, index) => (
+                    {jobData?.type.map((type, index) => (
                       <span
                         key={index}
-                        className={`text-sm mr-2 px-4 py-1 whitespace-nowrap rounded-xl ${
+                        className={`text-sm px-4 py-1 whitespace-nowrap rounded-xl ${
                           type === "Urgent"
                             ? "text-[#f9ab00] bg-[#f9ab0026]"
                             : type === "Private"
@@ -94,8 +100,8 @@ const Job = () => {
         <div className="lg:container px-4 mx-auto flex gap-10">
           <div className="w-full lg:w-8/12">
             <div>
-              <h3 className="text-3xl font-semibold mb-5">Job Description</h3>
-              <p>
+              <h3 className="text-2xl font-semibold mb-5">Job Description</h3>
+              {/* <p>
                 As a Product Designer, you will work within a Product Delivery
                 Team fused with UX, engineering, product and data talent. You will
                 help the team design beautiful interfaces that solve business
@@ -103,12 +109,13 @@ const Job = () => {
                 on building web-based applications for AML, KYC and Sanctions List
                 management workflows. This role is ideal if you are looking to
                 segue your career into the FinTech or Big Data arenas.
-              </p>
+              </p> */}
+              <p>{jobData?.description}</p>
 
-              <h3 className="text-3xl font-semibold my-5">
+              <h3 className="text-2xl font-semibold my-5">
                 Key Responsibilities
               </h3>
-              <p>
+              {/* <p>
                 Be involved in every step of the product design cycle from
                 discovery to developer handoff and user acceptance testing. Work
                 with BAs, product managers and tech teams to lead the Product
@@ -125,18 +132,20 @@ const Job = () => {
                 UI’s and understand that adopting common interface patterns is
                 better for UX than reinventing the wheel Present your work to the
                 wider business at Show & Tell sessions.
-              </p>
+              </p> */}
+              <p>{jobData?.description}</p>
 
-              <h3 className="text-3xl font-semibold my-5">Skill & Experience</h3>
-              <p>
+              <h3 className="text-2xl font-semibold my-5">Skill & Experience</h3>
+              {/* <p>
                 You have at least 3 years’ experience working as a Product
                 Designer. You have experience using Sketch and InVision or Framer
                 X You have some previous experience working in an agile
                 environment – Think two-week sprints. You are familiar using Jira
                 and Confluence in your workflow
-              </p>
+              </p> */}
+              <p>{jobData?.description}</p>
             </div>
-            <RelatedJobs />         
+            <RelatedJobs category={jobData?.category} />         
           </div>
 
           <div className="flex flex-col w-full lg:w-4/12 h-auto bg-white">                    
