@@ -1,6 +1,9 @@
 import { Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import {CompanyType} from "@docs/Types";
 
-const CompanyProfileCard = () => {
+const CompanyProfileCard = ({company}:{company:CompanyType}) => {
+    console.log("compoany----->",company);
+    const {company:name, email, founded, industry, location, phone, size} = company;
   return (
     <div className="bg-liteBlue w-full rounded-sm p-5 mt-10">
       <h3 className="text-2xl font-semibold mb-5">Company Overview</h3>
@@ -17,7 +20,7 @@ const CompanyProfileCard = () => {
               </div>
             </div>
             <div className="ml-4">
-              <h1 className="text-2xl font-bold text-gray-900">Segment</h1>
+              <h1 className="text-2xl font-bold text-gray-900">{name}</h1>
               <a href="#" className="text-sm text-primaryBlue hover:text-indigo-800 font-medium">
                 View company profile
               </a>
@@ -28,27 +31,27 @@ const CompanyProfileCard = () => {
           <div className="space-y-4 text-gray-700">
             <div className="flex  items-center justify-between w-full">
               <p className="font-medium col-span-1">Primary industry:</p>
-              <p className="col-span-2 text-gray-900">Software</p>
+              <p className="col-span-2 text-gray-900">{industry}</p>
             </div>
             <div className="flex  items-center justify-between w-full">
               <p className="font-medium col-span-1">Company size:</p>
-              <p className="col-span-2 text-gray-900">501-1,000</p>
+              <p className="col-span-2 text-gray-900">{size}</p>
             </div>
             <div className="flex  items-center justify-between w-full">
               <p className="font-medium col-span-1">Founded in:</p>
-              <p className="col-span-2 text-gray-900">2011</p>
+              <p className="col-span-2 text-gray-900">{founded}</p>
             </div>
             <div className="flex  items-center justify-between w-full">
               <p className="font-medium col-span-1">Phone:</p>
-              <p className="col-span-2 text-gray-900">123 456 7890</p>
+              <p className="col-span-2 text-gray-900">{phone}</p>
             </div>
             <div className="flex  items-center justify-between w-full">
               <p className="font-medium col-span-1">Email:</p>
-              <p className="col-span-2 text-gray-900">info@joio.com</p>
+              <p className="col-span-2 text-gray-900">{email}</p>
             </div>
             <div className="flex  items-center justify-between w-full">
               <p className="font-medium col-span-1">Location:</p>
-              <p className="col-span-2 text-gray-900">London, UK</p>
+              <p className="col-span-2 text-gray-900">{location}</p>
             </div>
           </div>
 

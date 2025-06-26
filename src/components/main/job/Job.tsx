@@ -1,6 +1,6 @@
 "use client";
 
-import { JobsDataList } from "@/docs/docs";
+import { JobsDataList, CompanyDetailList } from "@/docs/docs";
 import Image from "next/image";
 import React from "react";
 import { PiHandbagFill } from "react-icons/pi";
@@ -19,6 +19,7 @@ const Job = () => {
 
   const jobData =  JobsDataList.find((job)=>job.id===Number(jobId));
   console.log(jobData);
+  const companyData = CompanyDetailList.find((company)=>company.company===jobData.company)
 
   const data = {
     icon: "/segment.webp",
@@ -145,12 +146,12 @@ const Job = () => {
               </p> */}
               <p>{jobData?.description}</p>
             </div>
-            <RelatedJobs category={jobData?.category} />         
+            <RelatedJobs category={jobData?.category ?? ""} />         
           </div>
 
           <div className="flex flex-col w-full lg:w-4/12 h-auto bg-white">                    
-            <JobOverviewCard />
-            <CompanyProfileCard />
+            <JobOverviewCard jobData={jobData} />
+            <CompanyProfileCard company={companyData} />
           </div>       
         </div>
       </div>
