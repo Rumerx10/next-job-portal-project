@@ -27,12 +27,12 @@ const PopularJobCategories = () => {
     {
       title: "Human Resource",
       desc: "55 open positions",
-      img: "/jobCategory/humanresource.png",
+      img: "/jobCategory/humanResource.png",
     },
     {
       title: "Health Care",
       desc: "25 open positions",
-      img: "/jobCategory/healthCare.png",
+      img: "/jobCategory/healthcare.png",
     },
     {
       title: "Project Management",

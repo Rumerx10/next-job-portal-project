@@ -22,7 +22,7 @@ const ArticleCard: React.FC<ImageProps> = ({
   className = "",
 }) => {
   return (
-    <div className="group bg-white p-2 rounded-lg">
+    <div className="group bg-white p-2 rounded-lg border shadow">
       <div
         className={`relative flex flex-col w-full overflow-hidden cursor-pointer rounded-lg ${className}`}
       >
@@ -54,8 +54,7 @@ const ArticleCard: React.FC<ImageProps> = ({
                 className="group-hover:translate-x-2 transition-transform duration-500"
               />
             </div>
-          </Link>
-          
+          </Link>          
         </div>
       </div>
     </div>

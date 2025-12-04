@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { jobsData } from "@/docs/docs";
+import { JobsDataList } from "@/docs/docs";
 import JobsHeader from "./JobsHeader";
 import DesktopFilter from "./filter/DesktopFilter";
 import MobileFilter from "./filter/MobileFilter";
@@ -64,10 +64,10 @@ const Jobs: React.FC = () => {
     setSelectedSkills([]);
     setSalaryRange([50, 150]);
   };
-  const totalJobs = jobsData.length;
+  const totalJobs = JobsDataList.length;
   const itemsPerPage = 4;
   const totalPages = Math.ceil(totalJobs / itemsPerPage);
-  const paginatedJobs = jobsData.slice(
+  const paginatedJobs = JobsDataList.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
