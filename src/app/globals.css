@@ -9,6 +9,7 @@
   --color-primaryBlue:#1967d2;
   --color-liteBlue:#e2eaf8;
   --color-bgGray:#f5f7fc;
+  --color-textGray: #4B5563;
 }
 
 @theme inline {

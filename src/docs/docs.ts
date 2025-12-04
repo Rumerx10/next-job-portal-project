@@ -220,3 +220,28 @@ export const jobsData = [
     matchPercentage: 83,
   },
 ];
+
+
+export newsArticlesData = const data = [
+    {
+      img: "/newsArticle/attract.webp",
+      date: "May 19, 2025",
+      commentCount: "12",
+      title: "Attract Sales And Profits",
+      desc: "A job ravenously while Far much that one rank beheld after outside....",
+    },
+    {
+      img: "/newsArticle/tips.webp",
+      date: "April 31, 2025",
+      commentCount: "9",
+      title: "5 Tips For Your Job Interviews",
+      desc: "A job ravenously while Far much that one rank beheld after outside....",
+    },
+    {
+      img: "/newsArticle/overworked.webp",
+      date: "June 25, 2025",
+      commentCount: "13",
+      title: "Overworked Newspaper Editor",
+      desc: "A job ravenously while Far much that one rank beheld after outside....",
+    },
+  ];
