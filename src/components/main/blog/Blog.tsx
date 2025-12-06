@@ -60,7 +60,8 @@ const Blog = () => {
     <div className="flex w-full items-center justify-center">
       <div className="container max-auto w-full px-4 flex flex-col justify-center items-center gap-5 py-10">
         <div className="flex flex-col lg:flex-row gap-5">
-          <div className="border-2 border-red-500 w-full lg:w-8/12 grid grid-cols-2 2xl:grid-cols-3 auto-row-max gap-5">
+         <div className="w-full">
+           <div className="w-full grid grid-cols-2 2xl:grid-cols-3 auto-row-max gap-5">
             {data.map((item, index) => (          
               <ArticleCard
                 key={index}
@@ -72,6 +73,7 @@ const Blog = () => {
               />          
             ))}
           </div>
+         </div>
           <div className="space-y-6 py-8 px-6 bg-bgGray w-full lg:w-4/12">
             <div>
               <h3 className="text-xl font-medium">Search by Keyword</h3>

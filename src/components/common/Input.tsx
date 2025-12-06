@@ -17,7 +17,7 @@ const Input = ({
 
   return (
     <div className="flex flex-col gap-2">
-      <label className="font-bold text-white">{label}</label>
+      <label className="font-bold">{label}</label>
       <Controller
         name={name}
         control={control}
@@ -27,7 +27,7 @@ const Input = ({
               {...field}
               value={field.value ?? ""}
               placeholder={placeholder}
-              className="rounded-lg px-5 shadow border-2 border-borderGray p-2 w-full bg-white"
+              className="rounded-lg px-5 shadow p-2 w-full bg-white"
             />
             {errors[name] && (
               <p className="text-red-500 text-sm">

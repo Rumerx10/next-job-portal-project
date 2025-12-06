@@ -16,18 +16,18 @@ const Textarea = ({
   } = useFormContext();
   return (
     <div className="flex flex-col gap-2">
-      <label className="font-bold text-white">{label}</label>
+      <label className="font-bold">{label}</label>
       <Controller
         name={name}
         control={control}
         render={({ field }) => (
             <div>
             <textarea
-              rows={10}
+              rows={6}
               {...field}
               value={field.value ?? ""}
               placeholder={placeholder}
-              className="resize-none rounded-lg p-5 shadow border-2 border-borderGray w-full bg-white"
+              className="resize-none rounded-lg p-5 shadow w-full bg-white"
             />
             {errors[name] && (
               <p className="text-red-500 text-sm">
